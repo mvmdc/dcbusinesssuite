@@ -13,6 +13,23 @@
     }
 }
 
+.menu-active {
+
+    &:hover {
+
+        background-color: rgb(177 136 255 / var(--tw-bg-opacity)) !important;
+            border-color: rgb(114 43 226 / var(--tw-border-opacity)) !important;
+        
+            svg {
+                stroke: #FFFFFF !important;
+            }
+        
+            span {
+                color: #FFFFFF !important;
+            }
+    }
+}
+
 // ::selection {
 //     background-color: rgb(114 43 226 / var(--tw-border-opacity));
 //     color: #ffffff;
