@@ -1,0 +1,95 @@
+<div class="flex flex-row h-full w-full gap-x-4">
+    <ol class="flex flex-col h-full gap-y-2">
+        <li class="flex items-center gap-x-2.5">
+            <a class="w-8.5 h-8.5 rounded-lg flex items-center justify-center cursor-pointer bg-white border border-grey-dc"
+                matRipple>
+                <svg width="20" height="20" class="stroke-menu-outline" viewBox="0 0 20 20" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 19L7.67742 12.3226" stroke-miterlimit="10" />
+                    <path d="M6.90323 19H1V13.0968" stroke-miterlimit="10" />
+                    <path d="M18.9999 1L12.3225 7.67742" stroke-miterlimit="10" />
+                    <path d="M18.9999 6.90323V1H13.0967" stroke-miterlimit="10" />
+                </svg>
+            </a>
+            <a class="w-8.5 h-8.5 rounded-lg flex items-center justify-center cursor-pointer bg-white border border-grey-dc"
+                matRipple>
+                <svg width="18" height="18" viewBox="0 0 18 18" class="stroke-menu-outline" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_118_782)">
+                        <path
+                            d="M1.32642 5.21053H10.6106C13.9264 5.21053 16.6738 7.95789 16.6738 11.2737C16.6738 14.5895 13.9264 17.3368 10.6106 17.3368H1.32642"
+                            stroke="#333333" stroke-miterlimit="10" />
+                        <path d="M5.4001 9.37895L1.32642 5.21053L5.4001 1.13684" stroke-miterlimit="10" />
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_118_782">
+                            <rect width="18" height="18" fill="white" />
+                        </clipPath>
+                    </defs>
+                </svg>
+            </a>
+        </li>
+        <li class="w-18.5 h-18.5 rounded-lg border-grey-dc border bg-white hover:border-primary-dc hover:bg-menu-hover group transition-all duration-500 ease-in-out cursor-pointer"
+            [routerLink]="['/home/staff/detail']" [routerLinkActive]="['menu-active']" matRipple>
+            <app-menu-button name="Staff Detail" />
+        </li>
+        <li class="w-18.5 h-18.5 rounded-lg border-grey-dc border bg-white hover:border-primary-dc hover:bg-menu-hover group transition-all duration-500 ease-in-out cursor-pointer"
+            matRipple>
+            <app-menu-button name="Attendance" />
+        </li>
+    </ol>
+    <div class="flex flex-1 flex-col gap-y-2">
+        <div class="flex items-center gap-x-2.5">
+            <button class="button-add" matRipple>
+                <span class="text-xs font-bold flex items-center justify-center gap-x-1">
+                    <svg width="14" height="15"
+                        viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 0.5V14.5" stroke="#2B2B2B" stroke-miterlimit="10" />
+                        <path d="M0 7.5H14" stroke="#2B2B2B" stroke-miterlimit="10" />
+                    </svg>
+                    Add
+                </span>
+            </button>
+        </div>
+        <div class="flex-1 relative">
+            <div class="absolute top-0 left-0 bottom-0 right-0 z-0 overflow-hidden">
+                <div class="relative h-full w-full overflow-auto z-10">
+                    <div class="w-full grid grid-cols-3 gap-3">
+                        @for (item of employees; track item.id; let index = $index) {
+                            <div class="bg-white p-3 border border-grey-dc rounded-lg cursor-pointer" matRipple [routerLink]="['/home/staff/view']">
+                                <div class="flex">
+                                    <figure class="flex items-center gap-x-2 w-full">
+                                        <div class="w-1/4 h-full bg-white border border-grey-dc rounded-md"></div>
+                                        <figcaption class="flex flex-1 flex-col">
+                                            <span class="text-grey-dc text-ssm">
+                                                {{ item.employeeCode }}
+                                                <strong class="text-green-500">
+                                                    {{ item.employeeStatus }}
+                                                </strong>
+                                            </span>
+                                            <span class="text-sm font-bold text-primary-dc">
+                                                {{ item.employeeName }}
+                                            </span>
+                                            <span class="text-ssm font-semibold">
+                                                {{ item.employeePosition }}
+                                            </span>
+                                            <span class="text-sm font-semibold">
+                                                {{ item.employeeMobile }}
+                                            </span>
+                                            <span class="text-ssm text-grey-dc">
+                                                {{ item.employeeEmail }}
+                                            </span>
+                                            <span class="text-sm font-semibold">
+                                                {{ item.employeeAddress }}
+                                            </span>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
